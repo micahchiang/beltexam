@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema ({
 	name: String,
+	productOne: {type: Number, default: 0},
+	productTwo: {type: Number, default: 0},
+	productThree: {type: Number, default: 0},
 	createdAt: {type: Date, default: Date.now}
 })
 

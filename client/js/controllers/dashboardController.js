@@ -65,16 +65,38 @@ blackbelt.controller('dashboardController', function($location, userFactory, $sc
 	}
 
 	$scope.biddingEnded = function(){
-		// var count = 0;
-		// for(var i = 0; i < $scope.allUsers.length; i++){
-		// 	if($scope.allUsers[i].productOne == 0){
-		// 		count += 1;
-		// 	}
-		// }
-		// if(count = 3){
-		// 	window.alert('all items must have at least one bid!');
-		// 	blockNavigation = true;
-		// }
+		var countOne = 0;
+		var countTwo = 0;
+		var countThree = 0;
+		getUsers();
+		console.log('bidding trying to end', $scope.allUsers);
+		for(var i = 0; i < $scope.allUsers.length; i ++){
+			if($scope.allUsers[i].productOne > 0){
+				countOne += 1; 
+			}
+			if($scope.allUsers[i].productTwo > 0){
+				countTwo += 1; 
+			}
+			if($scope.allUsers[i].productThree > 0){
+				countThree += 1; 
+			}
+		}
+		if(countOne == 0){
+			console.log('one is empty');
+			window.alert("all items must have at least one bid.")
+			return false;
+		}
+		if(countTwo == 0){
+			console.log('one is empty');
+			window.alert("all items must have at least one bid.")
+			return false;
+		}
+		if(countThree == 0){
+			console.log('one is empty');
+			window.alert("all items must have at least one bid.")
+			return false;
+		}
+		console.log(countOne, countTwo, countThree);
 
 		var input = $scope.currentUser;
 		userFactory.storeUser(input, function(){

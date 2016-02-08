@@ -4,4 +4,7 @@ var blackbelt = angular.module('blackbelt', ['ngRoute'])
 		.when('/', {
 			templateUrl: '/partials/login.html'
 		})
+		.when('/dashboard', {
+			templateUrl: '/partials/dashboard.html'
+		})
 	})
